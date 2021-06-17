@@ -1,0 +1,36 @@
+<h1> Centers </h1>
+<div *ngIf="!centers">No Data Available</div>
+<div class="container" *ngFor="let center of centers">
+    <div class="con-box">
+        <span>Address: {{center.address}}</span>
+    </div>
+    <div class="con-box">
+        <span>Block Name: {{center.block_name}}</span>
+    </div>
+    <div class="con-box">
+        <span>District: {{center.district_name}}</span>
+    </div>
+    <div class="con-box">
+        <span>Name: {{center.name}}</span>
+    </div>
+    <div class="slot-box" *ngFor="let session of center.sessions">
+        <div class="con-box">
+            <span>Available Capacity: {{session.available_capacity}}</span>
+        </div>
+        <div class="con-box">
+            <span>Available Capacity for dose1: {{session.available_capacity_dose1}}</span>
+        </div>
+        <div class="con-box">
+            <span>Available Capacity for dose2: {{session.available_capacity_dose1}}</span>
+        </div>
+        <div class="con-box">
+            <span>Min age limit: {{session.min_age_limit}}</span>
+        </div>
+        <div class="con-box">
+            <span>vaccine: {{session.vaccine}}</span>
+        </div>
+        <select>
+            <option *ngFor="let slot of session.slots">{{slot}}</option>
+        </select>
+    </div>
+</div>

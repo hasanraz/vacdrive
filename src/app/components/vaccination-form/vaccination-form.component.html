@@ -1,0 +1,24 @@
+<form [formGroup]="vacForm" (ngSubmit)="submit()">
+    <p>
+      <select formControlName="state">
+        <option [ngValue]="null" disabled>Select State</option>
+        <option *ngFor="let state of states" [ngValue]="state.state_id">{{state.state_name}}</option>
+      </select>
+      <button type="submit">Select State</button>
+    </p>
+</form>
+<form *ngIf="districtAvail" [formGroup]="vacDistForm" (ngSubmit)="selectDistrict()">
+    <p >
+     <select formControlName="district">
+        <option [ngValue]="null" disabled>Select District</option>
+        <option *ngFor="let dist of districts" [ngValue]="dist.district_id">{{dist.district_name}}</option>
+    </select>
+    <button  type="submit">Select District</button>
+</p>
+</form>
+<form [formGroup]="vacDateForm" (ngSubmit)="selectDate()">
+    <label for="birthday">Select Appointment Date:</label>
+    <input type="date" id="appointment" name="appointment" formControlName="adate">
+    <input type="submit">
+</form>
+<button (click)="submitAppoinment()">Apply for Appointment</button>
